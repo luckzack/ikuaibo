@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name=description content="快播Vip">
+    <title>朋友圈都High爆了！！赶紧看看我像哪位明星脸！！</title>
+    <link rel="shortcut icon" href="http://is.kuaibo.com/sq/favicon.ico" type="image/x-icon" />
+    <link rel="bookmark" href="http://is.kuaibo.com/sq/favicon.ico" />
+
+    <link href="style/wxin.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+	<div class="main-center">
+		<h1>
+			<img id="title" src="images/title.png" >
+		</h1>
+		<div class="time clearfix">
+			<span id="date">2014-03-11</span>
+			<a href="weixin://contacts/profile/qvod_vip">快播会员</a>
+		</div>
+		<div class="face">
+			<img class="img" id="user" src="">
+			<img class="img" id="star" src="">
+			<div class="vs-ico">
+				<img src="images/vs-ico.png">
+			</div>
+		</div>
+		<h2 class="like" id="s">与杨幂相似度：95%</h2>
+		<img src="images/detail.png" style="width:5.4rem;">
+		<div class="text">
+			<p>相貌排名在<span id="rank">303</span>，已经击败了<span id="jibai">30.2%</span>发送用户。</p>
+			<p id="praise">
+				你太可以了！你的样貌就好比那天仙，风华绝代，天下无双，谁要是敢说你长得吓人，我第一个就去跟他拼命！
+			</p>
+			<p>分享到朋友圈，告诉你朋友傲人的成绩！！</p>
+		</div>
+        <a href="weixin://contacts/profile/qvod_vip"><img id="addUs" src="images/add-img.png"></a>
+        <img src="images/qvod-vip.png" class="code"/>
+		<a href="weixin://contacts/profile/qvod_vip"><img id="bottom" src="images/btm-img.png"></a>
+	</div>
+
+    <script>
+        //console.log(window.location,,getQueryString('star'))
+
+        var user =  getQueryString('user');
+        var star = getQueryString('star');
+        var s = getQueryString('s');   //相似指数
+        var name = decodeURI(getQueryString('name'));
+        var rank = getQueryString('rank');
+        var jibai = (((10100-rank)/10100)*100).toFixed(1)+'%';
+
+        $('user').src = user;
+        $('star').src = star;
+        $('date').innerHTML = getDate();
+        $('s').innerHTML = '与'+name+'相似度：'+s+'%';
+        $('rank').innerHTML = rank;
+        $('jibai').innerHTML = jibai;
+        $('praise').innerHTML = getPraise();
+
+        console.log($('user').width,$('user').height)
+
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+
+
+        function $(id){
+            return document.getElementById(id);
+        }
+
+        function getDate(){
+            var today = new Date();
+            return today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        }
+
+        function getPraise(){
+            var list = [
+                "我觉得世界上就只有两种人能吸引人，一种是丑爆的 一种就是你这样的。说不出飘逸出尘，仿佛天人一般。",
+                "我苦苦寻找多年，求神拜佛，遍访神州大地，终于找到你这个黄金比例的脸庞！连老天都感动的落泪了！",
+                "啊，这就是所谓的贵族气息吗？隐隐透露出不凡的气概，深邃的眼眸已经俘虏了我的心扉！把微信号给我好吗！！",
+                "你啊，长成如此惊为天人、山崩地裂、世界末日，连你爸妈造吗？快把微信交出来！求约会！",
+                "没有遇见你之前，我不知道有这样的眼睛；没有遇见你之前，我不知道有这样的鼻梁；没有遇见你之前，我爱上了别人！"
+            ]
+
+            return list[Math.floor(Math.random()*list.length)];
+
+        }
+
+    </script>
+</body>
+</html>

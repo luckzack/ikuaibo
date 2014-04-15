@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>萌宠刮刮卡</title>
+<link rel="stylesheet" href="./files/style.css" type="text/css" media="screen" />
+<style>
+body{
+	background:#dddddd;
+}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+	<div class="l-panels">
+    	<div id="loading" style="display: none;"><img src="./files/loading.gif"></div><div class="l-wrap panel" id="content" style="display:none; background:url(./files/bg_s_repeat.png); background-repeat:repeat-y;
+background-size:320px 1px;">
+        	<div class="wrapBG" style="height:356px;">
+       	    	<img class="lazy" data-src="./files/bg_s.png" src="./files/blank.gif"/>
+            </div>
+            
+            <div class="wrapTitle" style="top:10px;">
+            	<p>抽到一张 <span class="highlight" id="cardTitle">熊猫卡</span></p>
+                <p>快刮开涂层，试试手气吧！</p>
+            </div>
+            
+            <div class="wrapCard" style="top:85px;">
+       	    	<img class="lazy" id="cardImgae" data-src="" src="./files/blank.gif"/>
+            </div>
+            
+            <!-- game -->
+            <div class="wrapGameArea" style="top:170px;" id="touchArea"></div>
+            <div class="wrapGame" style="top:190px;">
+                <div class="wrapStatus_0"><img class="lazy" data-src="./files/status_0.png" src="./files/blank.gif" /></div>
+                <div class="wrapStatus_1"><img class="lazy" data-src="./files/status_1.png" src="./files/blank.gif" /></div>
+                <div class="wrapStatus_2"><img class="lazy" data-src="./files/status_2.png" src="./files/blank.gif" /></div>
+                <div class="wrapResult">
+                	<div class="detail" id="txtResult">抽奖结果</div>
+                </div>
+            </div>
+            <!-- /game -->
+            
+            <div class="wrapTips" style="top:230px;">
+                  <div class="wrap_start" id="startTips"><img class="lazy" data-src="./files/tips_s.gif" src="./files/blank.gif"/></div>
+                  <div class="wrap_detail" id="resultTips">
+                      <p id="txtResultTips">再接再厉，祝你下次好运！</p>
+                      <a href="#" class="weibo" id="btnWeiBo">
+                          <span class="checkbox click"></span>
+                          <span class="detai">分享幸运，收获快乐</span>
+                      </a>
+                </div>
+            </div>
+            
+            <div class="wrap_button" style="top:314px;">
+              <a href="#" class="btn_init" id="btnConfirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</a>
+				<p><br><br>一等奖：小油油请你吃饭 。</p>
+				<p>二等奖：小油油请你喝咖啡/茶 。</p>
+				<p>三等奖：小油油在广播中为你祈福 。</p>
+            </div>
+			
+      </div>
+    </div>
+    
+</div>
+
+
+<!------------- < Modal - 屏蔽区域(全屏透明)> ---------------->
+<div class="Disablebox"></div>
+
+<!------------- < Modal - Success Or Fail> ---------------->
+<div class="l-modal-tips" id="boxModal">
+    <div class="bg"></div>
+    <div class="l-m-t_wrap">
+      <div id="loadContainer" class="load_wrap"></div>
+    </div>
+</div>
+<!------------- < /Modal - Success Or Fail> ---------------->
+
+<script type="text/javascript" src="./files/jquery-1.4.4.min.js"></script>
+<script src="./files/jail.js" type="text/javascript"></script>
+<script type="text/javascript" src="./files/luckygametest.js"></script>
+</body>
+</html>
+

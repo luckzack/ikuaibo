@@ -1,0 +1,38 @@
+{
+  "name": "ikuaibo",
+  "version": "0.0.3",
+  "main": "ikuaibo-app.js",
+  "dependencies": {
+    "express": "~3.0",
+    "request": "~2.12",
+    "underscore": "~1.4",
+    "debug": "~0.7.2",
+    "js-yaml": "~2.0.3",
+    "weixin-robot": "~0.4.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.13.0",
+    "should": "~2.0.1",
+    "xml2js": "~0.2.8"
+  },
+  "engines": {
+    "node" : ">=0.8.0",
+    "npm" : ">=1.1.6"
+  },
+  "scripts": {
+    "start": "node ikuaibo-app.js",
+    "test": "make test"
+  },
+  "keywords": [
+    "weixin",
+    "kuaibo",
+    "wechat"
+  ],
+  "description": "ikuaibo公众号后台",
+  "repository": "",
+  "author": "Louis Lve <lvzhuo1213@gmail.com>",
+  "contributors": [
+    "Louis Lve <lvzhuo1213@gmail.com> (http://imria.com)"
+  ],
+  "license": "MIT"
+}

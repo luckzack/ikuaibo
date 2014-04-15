@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td ,iframe{margin:0;padding:0;}
+body{background: #f7f7f7; font-size:12px;font-family:"华文细黑","微软雅黑",arial; _position:absolute;font-size: 62.5%;}
+table {border-collapse:collapse;border-spacing:0}
+fieldset, img {border:0}
+caption, th {text-align:left}
+h1, h2, h3, h4, h5, h6 {}
+q:before, q:after {content: "\20"}
+
+/* clear */
+.clearfix:after {content: "\20";display: block;height: 0;clear: both;visibility: hidden;}
+.clearfix {*zoom:1;display: inline-block;clear: both;}
+.clearfix {display: block;}
+.clear{clear:both;}
+
+
+/* img*/
+img {border: 0;-ms-interpolation-mode: bicubic;}
+
+.main-center{padding: 15px;
+text-align: center;}
+.main-center img#title{width: 100%;vertical-align: top;}
+.main-center img#bottom{width: 100%;vertical-align: top;}
+.main-center img#addUs{width: 100%;vertical-align: top;}
+.main-center .time{font-size: 0.9rem;
+color: #303030;
+padding: 0.8rem 0 1rem;}
+.main-center .time a{color: #ea1c1c;text-decoration: none;float: left;}
+.main-center .time span{float: left;margin-right: 0.4rem;}
+
+.face{width: 100%;
+height: 11.5rem;
+border: 1px solid #e4e4e4;
+position: relative;}
+.face .img{width: 50%;float: left;height: 100%;}
+.face .vs-ico{position: absolute;
+bottom: -0.6rem;
+left: 0;
+z-index: 1;
+width: 100%;
+text-align: center;}
+.face .vs-ico img{width: 2.6rem;}
+.like{color: #ea1c1c;
+font-size: 1.4rem;
+padding: 1rem;
+font-weight: bold;}
+
+.text{color: #303030;
+font-size: 1rem;
+padding-top: 1rem;
+padding-bottom: 0.8rem;
+text-align: left;}
+.text p{padding-bottom: 0.6rem;}
+.text span{color:#ea1c1c;padding: 0 0.3rem;font-weight: bold;}
+
+.main-center .code{width: 43%;padding: 1rem 0;}
