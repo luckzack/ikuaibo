@@ -180,12 +180,12 @@ $(document).ready(function() {
         $("#btnConfirm").bind("click", function(p) {
             p.preventDefault();
             if (isWeibo) {
-                g();
-                window.location = "./index.html";
+               // g();
             } else {
-                window.location = "./index.html";
             }
-            window.location = "./index.html";
+           // window.location = "./index.html";
+
+            ShowWeiXinShareTips('#main')
         });
     }
     function c() {
@@ -196,5 +196,13 @@ $(document).ready(function() {
         }, function(p) {
             window.location = "../card/index.html#openbar";
         });
+    }
+
+
+    function ShowWeiXinShareTips(page) {
+        var div = '<div id="WeiXinShareTips"><img src="files/sharetip.png" width="165" height="114"/></div>';
+        $(page).append(div);
+        $('#WeiXinShareTips').bind('click',function() {$('#WeiXinShareTips').remove();});
+        setTimeout(function() {$('#WeiXinShareTips').remove();}, 3000);
     }
 });
