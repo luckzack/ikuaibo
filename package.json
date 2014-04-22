@@ -1,7 +1,7 @@
 {
   "name": "ikuaibo",
   "version": "0.0.3",
-  "main": "ikuaibo-app.js",
+  "main": "ikuaibo-wx.js",
   "dependencies": {
     "express": "~3.0",
     "request": "~2.12",

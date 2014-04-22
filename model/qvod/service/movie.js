@@ -1,9 +1,12 @@
 /**
  * Date: 2014/3/27
  * Time: 16:31
+ *
+ * yunfan影片接口
  */
 var http_get = require('../../utils').HttpGet;
 var msg = require('../../../support').customMsg;
+
 var SEARCH = 'http://www.yunfan.com/api/search/?q=';
 var GETNEW = 'http://www.yunfan.com/api/dianying/list.php?showtype=bigimg&list=1&rank=createtime&cat=all&year=all&area=all&act=';
 var GETHOT = 'http://www.yunfan.com/api/dianying/list.php?showtype=bigimg&list=1&rank=rankhot&cat=all&year=all&area=all&act=';
@@ -14,12 +17,7 @@ var NEW_TITLE = ['为你找到最新影片：','http://m.yunfan.com'];
 var HOT_TITLE = ['为你找到最热影片：','http://m.yunfan.com'];
 
 
-module.exports = {
-    search:search,
-    getNew:getNew,
-    getHot:getHot,
-    getQvodADMovie:getQvodADMovie
-}
+
 
 
 
@@ -153,6 +151,84 @@ function getName(v){
 
 }
 
+/**  以下接口“雷达”使用
+ *
+ * 取到影片id后，按规则拼成影片介绍页和影片T图地址
+ *
+ * 介绍页：http://m.yunfan.com/#/mo/7475734361652700469     ,mo,tv,ct,va
+ * T图：http://img.yunfan.com/index.php?mid=middle_1914960785692076728&t=m
+ *
+ **/
+var DIANYING = 'http://s.yunfan.com/wx/dy1.js';
+var DIANSHIJU = 'http://s.yunfan.com/wx/tv1.js';
+var DONGMAN = 'http://s.yunfan.com/wx/dm1.js';
+var ZONGYI = 'http://s.yunfan.com/wx/zy1.js';
+
+
+function getRandom(type,count,callback){
 
 
 
+    var api = type['api'];
+    var key = type['key'];
+
+
+
+    http_get(api,function(err,data){
+        try{
+            data =  JSON.parse(data.toString());
+        } catch(e){
+            //return callback(null,msg('text','Sorry , 未找到相关影片！'));
+            return callback('Sorry , 未找到相关影片！',null);
+        }
+
+        var list = [];
+        for(var i in data){
+            list.push(i);
+        }
+
+
+
+        var output = [];
+
+        for(var i = 0;i< count;i++){
+            var total_count = list.length;
+            var idx = Math.floor(Math.random()*total_count);
+            list.splice(idx,1);
+
+            var id = data[list[idx]];
+
+            output.push([list[idx],generateVideoUrl(key,id),gennertateTimgUrl(id)])
+        }
+
+       // return callback(null,msg('news',output))
+        return callback(null,output);
+
+    });
+
+
+}
+
+function generateVideoUrl(key,id){
+    return "http://m.yunfan.com/#/"+key+"/"+id;
+}
+
+function gennertateTimgUrl(id){
+    return 'http://img.yunfan.com/index.php?t=m&mid=middle_'+id;
+}
+
+
+
+module.exports = {
+    search:search,
+    getNew:getNew,
+    getHot:getHot,
+    getQvodADMovie:getQvodADMovie,
+    type:{
+        dy:{key:'mo',api:DIANYING},
+        tv:{key:'tv',api:DIANSHIJU},
+        dm:{key:'ct',api:DONGMAN},
+        zy:{key:'va',api:ZONGYI}
+    },
+    getRandom:getRandom
+}
